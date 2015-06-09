@@ -4,7 +4,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
@@ -12,10 +11,10 @@
 hs_err_pid*
 
 build.xml
-build/
-dist/
-nbproject/
-setup/
+build
+dist
+nbproject
+setup
 #################
 ## Eclipse
 #################
