@@ -4,13 +4,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
-
 import javax.naming.NamingException;
-import sun.jdbc.odbc.ee.DataSource;
+import javax.sql.DataSource;
 
 
 /**
@@ -22,29 +19,37 @@ public class ConnectionPool {
     /**
      * @return connection
      */
-    public Connection getConnection() {
-        Connection con = null;
-//        try {
-//            Context envCtx = (Context) (new InitialContext().lookup("java:comp/env"));
-//            DataSource ds = (DataSource) envCtx.lookup("jdbc/pr");
-//        } catch (NamingException ex) {
-//            Logger.getLogger(ConnectionPool.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-       
+    public Connection getConnection() {   
+        Context context = null;
+        DataSource ds = null;
+        Connection cn = null;
         try {
-             InitialContext context = new InitialContext();
-            DataSource dataSource = (DataSource) context.lookup("jdb/pr");
-            con = dataSource.getConnection();
-        } catch (NamingException | SQLException ex) {
-            Logger.getLogger(ConnectionPool.class.getName()).log(Level.SEVERE, null, ex);
+            //        try {
+//            envCtx = (Context) (new InitialContext().lookup("java:comp/env/pr4"));
+//            ds = (DataSource) envCtx.lookup("jdbc/pr4Pool");
+//
+//        } catch (NamingException ex) {
+//            Logger.getLogger(ConnectorDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+            context = new InitialContext();
+        } catch (NamingException ex) {
+            Logger.getLogger(ConnectorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return con;
+        try {
+            ds = (DataSource) context.lookup("jdbc/pr4");
+        } catch (NamingException ex) {
+            Logger.getLogger(ConnectorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            cn = ds.getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cn;
     }
-    
-    public static void main(String[] args) {
-       ConnectionPool pool = new ConnectionPool(); 
-       Connection con =  pool.getConnection();
-        System.out.println("");
+    public static void main(String[] args) throws SQLException {
+        Connection con = con = new ConnectionPool().getConnection();
+        
+        System.out.println(con.getMetaData());
     }
 }
