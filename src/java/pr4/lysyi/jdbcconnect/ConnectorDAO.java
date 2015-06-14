@@ -29,16 +29,16 @@ public class ConnectorDAO {
      * synchronized
      * @return  instance (only one), singleton 
      */
-//    public static ConnectorDAO getInstance() {
-//        if (instance == null) {
-//            synchronized (ConnectorDAO.class) {
-//                if (instance == null) {
-//                    instance = new ConnectorDAO();
-//                }
-//            }
-//        }
-//        return instance;
-//    }
+    public static ConnectorDAO getInstance() {
+        if (instance == null) {
+            synchronized (ConnectorDAO.class) {
+                if (instance == null) {
+                    instance = new ConnectorDAO();
+                }
+            }
+        }
+        return instance;
+    }
     
     /**
      * check for valid

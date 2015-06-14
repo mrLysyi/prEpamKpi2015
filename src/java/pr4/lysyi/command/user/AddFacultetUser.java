@@ -28,7 +28,7 @@ public class AddFacultetUser implements ActionCommand {
         HttpSession session = request.getSession(true);
         String facName = (String) session.getAttribute("curentFacultetName");
         String examNames = (String) session.getAttribute("ExamName");
-//        System.out.println("examNames" + examNames);
+        System.out.println("examNames" + examNames);
         request.setAttribute("examNames", examNames);
         String znoStr = request.getParameter("zno");
         String gradeOneStr = request.getParameter("grade1");

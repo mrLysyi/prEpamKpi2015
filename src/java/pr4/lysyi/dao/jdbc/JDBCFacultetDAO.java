@@ -21,7 +21,6 @@ import pr4.lysyi.dao.EnumDAOType;
 import pr4.lysyi.dao.FacultetDAO;
 import pr4.lysyi.dto.Facultet;
 import pr4.lysyi.dto.User;
-import pr4.lysyi.jdbcconnect.ConnectionPool;
 import pr4.lysyi.jdbcconnect.ConnectorDAO;
 
 /**
@@ -32,6 +31,7 @@ public class JDBCFacultetDAO extends FacultetDAO {
 
     private static final String CREATE = "INSERT INTO pr4.facultet (name, budget_quote, "
             + "admin, comerrcial_quote, min_grade, examen_names) VALUES (?, ?, ?, ?, ?, ?)";
+
     private static final String DELETE_ID = "DELETE facultet FROM pr4.facultet where id = ?;";
     private static final String DELETE_FACULTET = "DELETE facultet FROM pr4.facultet WHERE name = ?";
     private static final String READ_ID = "SELECT * FROM pr4.facultet WHERE id = ?";
@@ -45,8 +45,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         boolean rezult = false;
         Statement query = null;
         PreparedStatement st = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             con.setAutoCommit(false);
             st = con.prepareStatement(CREATE);
@@ -82,8 +82,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         boolean rezult = false;
         Statement query = null;
         PreparedStatement st = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             st = con.prepareStatement(DELETE_ID);
             st.setInt(1, id);
@@ -111,8 +111,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         boolean rezult = false;
         Statement query = null;
         PreparedStatement st = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             st = con.prepareStatement(DELETE_FACULTET);
             st.setString(1, facultet.getName());
@@ -134,8 +134,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         Facultet facultet = new Facultet();        
         ResultSet rs = null;
         PreparedStatement query = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             query = con.prepareStatement(READ_ID);
             query.setInt(1, id);
@@ -159,8 +159,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         
         ResultSet rs = null;
         PreparedStatement query = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             query = con.prepareStatement(READ_NAME);
             query.setString(1, facultetName);
@@ -182,8 +182,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
     public boolean update(Facultet facultet) {
         boolean rezult = false;
         PreparedStatement st = null;
-      Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+     // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         if (facultet.getId() == 0 || facultet.getName() == "") {
             return false;
         }
@@ -218,8 +218,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
     @Override
     public List<Facultet> findAll() {
         List<Facultet> facultList = new ArrayList<Facultet>();       
-      Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+     // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try (Statement query = con.createStatement()) {
             ResultSet rs = query.executeQuery("SELECT * FROM facultet");
             while (rs.next()) {
@@ -239,8 +239,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
     public Facultet findByAdmin(String adminEmail) {
         Facultet facultet = null;
         PreparedStatement st = null;
-      Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+     // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try  {           
             st = con.prepareStatement("SELECT * FROM facultet WHERE admin=?");
             st.setString(1, adminEmail);  
@@ -263,8 +263,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
         Boolean rezult = false;
         
         PreparedStatement st = null;
-      Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+     // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {            
             st = con.prepareStatement(SET_EXAM);
             st.setString(1, examNames);
@@ -285,8 +285,8 @@ public class JDBCFacultetDAO extends FacultetDAO {
     @Override
     public String getExamNames(String facultetName) {
         String rezult=null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         PreparedStatement query = null;
         
         try {            

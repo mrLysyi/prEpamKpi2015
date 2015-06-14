@@ -21,7 +21,6 @@ import pr4.lysyi.dao.UserFacultetDAO;
 import pr4.lysyi.dto.Facultet;
 import pr4.lysyi.dto.User;
 import pr4.lysyi.dto.UserFacultet;
-import pr4.lysyi.jdbcconnect.ConnectionPool;
 import pr4.lysyi.jdbcconnect.ConnectorDAO;
 
 /**
@@ -60,8 +59,8 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
         UserFacultet userFacultet = new UserFacultet(userID, facultetId);        
         boolean rezult = false;
         PreparedStatement st = null;
-     Connection con =  new ConnectionPool().getConnection();
-//       Connection  con = ConnectorDAO.getInstance().getConnection();
+    // Connection con =  new ConnectionPool().getConnection();
+       Connection  con = ConnectorDAO.getInstance().getConnection();
         try {
             st = con.prepareStatement(INSERT);
             st.setInt(1, facultetId);
@@ -179,8 +178,8 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
        
         ResultSet rs = null;
         PreparedStatement query = null;
-         Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+        // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             query = con.prepareStatement(FIND_ID);
             query.setInt(1, facultetId);          
@@ -211,8 +210,8 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
      
         ResultSet rs = null;
         PreparedStatement query = null;
-     Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+    // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             query = con.prepareStatement(FIND_ID_INCOURS);
             query.setInt(1, facultetId); 
@@ -244,8 +243,8 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
        
         ResultSet rs = null;
         PreparedStatement query = null;
-      Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+     // Connection con =  new ConnectionPool().getConnection();      // Pool
+       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
         try {
             query = con.prepareStatement(FIND_ID_INCOURS_GRADE);
             query.setInt(1, facultetId); 
@@ -256,7 +255,7 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
                  list.add(new User(rs.getInt("id"), rs.getString(2), rs.getString(3),
                         rs.getString(4), rs.getString("email"), rs.getString("password"),
                         rs.getString("city"), rs.getString("country"),  rs.getString("role"))); //rs.getDate(7)
-            }          
+            }           
 
         } catch (SQLException e) {
             Logger.getLogger(JDBCUserDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -267,11 +266,11 @@ public class JDBCUserFacultetDAO extends UserFacultetDAO {
         return list;
     }
      
-    public boolean setIncourse(int userId, int facultetId) {      
+    public boolean setIncourse(int userId, int facultetId) {         
+        Connection con;
         boolean rezult = false;
         PreparedStatement st = null;
-        Connection con =  new ConnectionPool().getConnection();      // Pool
-//       Connection  con = ConnectorDAO.getInstance().getConnection();    // Singltn
+        con = ConnectorDAO.getInstance().getConnection();
         try {
             st = con.prepareStatement(SET_INCORSE);           
             st.setInt(1, facultetId);

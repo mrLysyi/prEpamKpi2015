@@ -52,8 +52,8 @@ public class JDBCUserDAO extends UserDAO {
         boolean rezult = false;
         Statement query = null;
         PreparedStatement st = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();      // singletone connection
-         Connection con =  new ConnectionPool().getConnection();            // Pool conection
+        Connection con = ConnectorDAO.getInstance().getConnection();      // singletone connection
+//         Connection con =  new ConnectionPool().getConnection();            // Pool conection
         try {
             con.setAutoCommit(false);
             st = con.prepareStatement(CREATE);
@@ -96,10 +96,10 @@ public class JDBCUserDAO extends UserDAO {
             return false;
         }
         boolean rezult = false;
-        
+        Statement query = null;
         PreparedStatement st = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try {
             st = con.prepareStatement(DELETE_ID);
             st.setInt(1, id);
@@ -113,7 +113,7 @@ public class JDBCUserDAO extends UserDAO {
             Logger.getLogger(JDBCUserDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             this.close(st);
-            this.close(con);
+            this.close(query);
         }
         return rezult;
     }
@@ -127,10 +127,10 @@ public class JDBCUserDAO extends UserDAO {
     @Override
     public boolean delete(User user) {
         boolean rezult = false;
-        
+        Statement query = null;
         PreparedStatement st = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try {
             st = con.prepareStatement(DELETE_EMAIL);
             st.setString(1, user.getEmail());
@@ -142,7 +142,7 @@ public class JDBCUserDAO extends UserDAO {
             Logger.getLogger(JDBCUserDAO.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             this.close(st);
-            this.close(con);
+            this.close(query);
         }
         return rezult;
     }
@@ -152,8 +152,8 @@ public class JDBCUserDAO extends UserDAO {
         User user = new User();        
         ResultSet rs = null;
         PreparedStatement query = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try {
             query = con.prepareStatement(READ_BY_ID);
             query.setInt(1, id);
@@ -177,8 +177,8 @@ public class JDBCUserDAO extends UserDAO {
         User user = new User();        
         ResultSet rs = null;
         PreparedStatement query = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try {
             query = con.prepareStatement(READ_BY_EMAIL);
             query.setString(1, email);
@@ -208,8 +208,8 @@ public class JDBCUserDAO extends UserDAO {
         boolean rezult = false;
         Statement query = null;
         PreparedStatement st = null;
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try {
             con.setAutoCommit(false);
             st = con.prepareStatement(UPDATE);
@@ -253,8 +253,8 @@ public class JDBCUserDAO extends UserDAO {
     public List<User> findAll() {
         List<User> userList = new ArrayList<User>();
        
-//        Connection con = ConnectorDAO.getInstance().getConnection();
-        Connection con =  new ConnectionPool().getConnection();
+        Connection con = ConnectorDAO.getInstance().getConnection();
+//        Connection con =  new ConnectionPool().getConnection();
         try (Statement query = con.createStatement()) {
             ResultSet rs = query.executeQuery("SELECT * FROM user ");
             while (rs.next()) {
@@ -335,6 +335,7 @@ public class JDBCUserDAO extends UserDAO {
 //        user2.setId(2);
         System.out.println(user2.toString());
         System.out.println(userDao.update(user2));
+
         System.out.println(userDao.delete(user2));
     }
 
