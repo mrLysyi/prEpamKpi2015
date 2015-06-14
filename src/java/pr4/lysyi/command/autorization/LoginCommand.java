@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lysyi.command.autorization;
+package pr4.lysyi.command.autorization;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.contoller.logic.ActionCommand;
 import pr4.lysyi.businessLogic.LoginLogic;
 import pr4.lysyi.dao.AbstractDAO;
 import pr4.lysyi.dao.DAOFactory;
@@ -21,11 +16,11 @@ import pr4.lysyi.dto.Facultet;
 import pr4.lysyi.dto.User;
 import pr4.lysyi.filter.ClientType;
 import pr4.lysyi.util.Validator;
-import resources.ConfigurationManager;
-import resources.MessageManager;
+import pr4.lysyi.resources.ConfigurationManager;
+import pr4.lysyi.resources.MessageManager;
 
 /**
- *
+ * Login page
  * @author Lysyi Andrii
  */
 public class LoginCommand implements ActionCommand {

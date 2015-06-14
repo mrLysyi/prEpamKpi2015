@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package pr4.lysyi.businessLogic;
 
 import java.util.Iterator;
@@ -11,7 +5,7 @@ import java.util.LinkedList;
 import pr4.lysyi.dto.UserFacultet;
 
 /**
- *
+ * work with admin page
  * @author Lysyi Andrii
  */
 public class AdminLogic {

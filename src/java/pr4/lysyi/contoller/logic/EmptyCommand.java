@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.contoller.logic;
+package pr4.lysyi.contoller.logic;
 
-import lysyi.contoller.logic.ActionCommand;
-import resources.ConfigurationManager;
+import pr4.lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.resources.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**

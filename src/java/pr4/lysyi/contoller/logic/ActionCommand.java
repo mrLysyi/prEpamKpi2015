@@ -1,10 +1,10 @@
 
-package lysyi.contoller.logic;
+package pr4.lysyi.contoller.logic;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * 
  * @author Lysyi Andrii
  */
 public interface ActionCommand {

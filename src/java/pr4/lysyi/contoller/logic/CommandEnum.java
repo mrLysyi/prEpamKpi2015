@@ -1,12 +1,12 @@
-package lysyi.contoller.logic;
+package pr4.lysyi.contoller.logic;
 
-import lysyi.command.autorization.LoginCommand;
-import lysyi.command.autorization.LogoutCommand;
-import lysyi.command.autorization.RegistrationCommand;
-import lysyi.command.user.AddFacultetUser;
-import lysyi.command.user.AdminCommand;
-import lysyi.command.user.UserCommand;
-import lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.command.autorization.LoginCommand;
+import pr4.lysyi.command.autorization.LogoutCommand;
+import pr4.lysyi.command.autorization.RegistrationCommand;
+import pr4.lysyi.command.user.AddFacultetUser;
+import pr4.lysyi.command.user.AdminCommand;
+import pr4.lysyi.command.user.UserCommand;
+import pr4.lysyi.contoller.logic.ActionCommand;
 
 /**
  *

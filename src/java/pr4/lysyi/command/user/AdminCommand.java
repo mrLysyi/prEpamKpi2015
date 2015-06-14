@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.command.user;
+package pr4.lysyi.command.user;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.contoller.logic.ActionCommand;
 import pr4.lysyi.businessLogic.AdminLogic;
 import pr4.lysyi.businessLogic.FindNameLogic;
 import pr4.lysyi.dao.DAOFactory;
@@ -19,7 +19,7 @@ import pr4.lysyi.dao.jdbc.JDBCUserFacultetDAO;
 import pr4.lysyi.dto.Facultet;
 import pr4.lysyi.dto.User;
 import pr4.lysyi.dto.UserFacultet;
-import resources.ConfigurationManager;
+import pr4.lysyi.resources.ConfigurationManager;
 
 /**
  *

@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.command.autorization;
+package pr4.lysyi.command.autorization;
 
 
-import lysyi.contoller.logic.ActionCommand;
-import resources.ConfigurationManager;
+import pr4.lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.resources.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * Logout
  * @author Lysyi Andrii
  */
 public class LogoutCommand implements ActionCommand {

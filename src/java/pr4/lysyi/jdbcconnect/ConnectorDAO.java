@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import resources.ConfigurationManager;
-import resources.ConnectionManager;
+import pr4.lysyi.resources.ConfigurationManager;
+import pr4.lysyi.resources.ConnectionManager;
 
 /**
  *

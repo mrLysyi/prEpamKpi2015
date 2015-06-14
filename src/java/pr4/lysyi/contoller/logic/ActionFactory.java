@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.contoller.logic;
+package pr4.lysyi.contoller.logic;
 
 /**
  *
  * @author Lysyi Andrii
  */
-import resources.MessageManager;
+import pr4.lysyi.resources.MessageManager;
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionFactory {

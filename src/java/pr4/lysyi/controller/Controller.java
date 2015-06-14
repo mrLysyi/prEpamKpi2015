@@ -1,9 +1,9 @@
-package lysyi.controller;
+package pr4.lysyi.controller;
 
-import lysyi.contoller.logic.ActionCommand;
-import lysyi.contoller.logic.ActionFactory;
-import resources.ConfigurationManager;
-import resources.MessageManager;
+import pr4.lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.contoller.logic.ActionFactory;
+import pr4.lysyi.resources.ConfigurationManager;
+import pr4.lysyi.resources.MessageManager;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

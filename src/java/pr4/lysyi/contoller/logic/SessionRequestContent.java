@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.contoller.logic;
+package pr4.lysyi.contoller.logic;
 
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;

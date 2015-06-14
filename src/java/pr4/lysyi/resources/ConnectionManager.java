@@ -1,6 +1,6 @@
 
 
-package resources;
+package pr4.lysyi.resources;
 
 import java.util.ResourceBundle;
 

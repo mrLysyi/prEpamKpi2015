@@ -1,15 +1,15 @@
 
-package lysyi.command.autorization;
+package pr4.lysyi.command.autorization;
 
-import lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.contoller.logic.ActionCommand;
 import javax.servlet.http.HttpServletRequest;
 import pr4.lysyi.dao.DAOFactory;
 import pr4.lysyi.dao.EnumDAOType;
 import pr4.lysyi.dao.jdbc.JDBCUserDAO;
 import pr4.lysyi.dto.User;
 import pr4.lysyi.util.Validator;
-import resources.ConfigurationManager;
-import resources.MessageManager;
+import pr4.lysyi.resources.ConfigurationManager;
+import pr4.lysyi.resources.MessageManager;
 
 /**
  * Registration new user

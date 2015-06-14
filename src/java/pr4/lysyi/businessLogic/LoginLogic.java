@@ -15,7 +15,13 @@ import pr4.lysyi.dto.User;
  * @author Lysyi Andrii
  */
 public class LoginLogic {
-
+    /**
+     * 
+     * @param loginUser
+     * @param enterPass
+     * @param enterPassword
+     * @return true, if parametrs are valid
+     */
     public boolean checkLogin(User loginUser, String enterPass, String enterPassword) {
         String enterLogin = loginUser.getEmail();        
         if (loginUser== null || loginUser.getEmail() == null || !loginUser.getEmail().equals(enterLogin) ){
@@ -25,19 +31,24 @@ public class LoginLogic {
         return loginUser.checkPass(enterPass, enterPassword);
 //        return ADMIN_LOGIN.equals(enterLogin) && ADMIN_PASS.equals(enterPass);
     }
+    
+    /**
+     * 
+     * @return list with all facultets
+     */
     public List<Facultet> getFacultetList(){
        JDBCFacultetDAO facultetDao = (JDBCFacultetDAO) DAOFactory.getDAOFactory(EnumDAOType.FACULTET);
        return facultetDao.findAll(); 
     }
     
     
-    public static void main(String[] args) {
-//        System.out.println(LoginLogic.checkLogin("ivan@mail.com", "ivan"));
-        List<Facultet> list = new LoginLogic().getFacultetList();
-        Iterator it  =  list.iterator();
-        while (it.hasNext()) {
-            Facultet next = (Facultet) it.next();
-            System.out.println(next.getId());
-        }
-    }
+//    public static void main(String[] args) {
+////        System.out.println(LoginLogic.checkLogin("ivan@mail.com", "ivan"));
+//        List<Facultet> list = new LoginLogic().getFacultetList();
+//        Iterator it  =  list.iterator();
+//        while (it.hasNext()) {
+//            Facultet next = (Facultet) it.next();
+//            System.out.println(next.getId());
+//        }
+//    }
 }

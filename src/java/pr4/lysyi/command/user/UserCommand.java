@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lysyi.command.user;
+package pr4.lysyi.command.user;
 
 import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import lysyi.contoller.logic.ActionCommand;
+import pr4.lysyi.contoller.logic.ActionCommand;
 import pr4.lysyi.businessLogic.FindNameLogic;
 import pr4.lysyi.dto.Facultet;
-import resources.ConfigurationManager;
-import resources.MessageManager;
+import pr4.lysyi.resources.ConfigurationManager;
+import pr4.lysyi.resources.MessageManager;
 
 /**
  *

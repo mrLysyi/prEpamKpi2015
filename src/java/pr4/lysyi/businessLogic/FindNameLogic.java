@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pr4.lysyi.businessLogic;
 
 import java.util.Iterator;
@@ -36,6 +31,11 @@ public class FindNameLogic {
         return FacId;
     }
     
+    /**
+     * 
+     * @param facultetName
+     * @return selected facultet name
+     */
     public String getExamName(String facultetName){
         JDBCFacultetDAO facultetDao = (JDBCFacultetDAO) DAOFactory.getDAOFactory(EnumDAOType.FACULTET);
         return facultetDao.getExamNames(facultetName);
